@@ -1,8 +1,10 @@
 var chess={
-	Bishop: function(color){
+	Bishop: function(color,index){
 		var obj = new Object();
 		var html= document.createElement("div");
 		html.setAttribute("class","bishop");
+		html.setAttribute("color",color);
+		html.setAttribute("index",index);
 		html.style.backgroundImage = "url('./assets/"+color+".svg')";	 
 		$(html).draggable({ 
 			revert: true,
@@ -13,9 +15,9 @@ var chess={
 		obj.color = color;
 		obj.getOpponents = function(){
 			if(this.color==0){
-				return this.white;
+				return chess.bishops[1];
 			}
-			return this.black;
+			return chess.bishops[0];
 		}
 		obj.isValidMove =function(box){
 			var diffX,diffY,m;
@@ -35,28 +37,27 @@ var chess={
 			}
 			return 1;
 		}
-		obj.canMakeMove= function(box){
-			if(this.isSafeMove(box) && this.isValidMove(box)){
+		obj.makeMove= function(box){
+			var h= (0.75*window.innerHeight);
+			if(this.isSafeMove(box) && this.isValidMove(box) && !box.occupied){
+				this.box.occupied =false;
+				this.box = box;
+				this.box.occupied=true;
+				this.html.style.top = (this.box.x*(h*0.25));
+				this.html.style.left = (this.box.y*(h*0.25));
 				return 1;
 			}
 			return 0;
 		}
+
 		return obj;
-	},
-	isValidMove : function(){
-		var diffX,diffY,m;
-		diffX= box.x-this.box.x;
-		diffY=box.y-this.box.y;
-		m=diffX/diffY;
-		if(m==1 || m==-1){
-			return 1;
-		}
-		return 0;
 	},
 	Box: function(x,y){
 		var obj = new Object();
 		var html= document.createElement("div");
 		html.setAttribute("class","chess-box");
+		html.setAttribute("x",x);
+		html.setAttribute("y",y);
 		if((x+y)%2==0){
 			html.style.backgroundColor="#333";
 		}else{
@@ -65,14 +66,16 @@ var chess={
 		$(html).droppable({
   			accept: '.bishop',
 			drop: function(event, ui) {
-				//Get bishop and box********************************
-				if(bishop.canMakeMove(box) == 1) {
+				var bishop = chess.bishops[ui.draggable.attr("color")][ui.draggable.attr("index")];
+  				var box = chess.boxs[$(this).attr("x")][$(this).attr("y")];
+				if(bishop.makeMove(box) == 1) {
 					$('.ui-draggable-dragging').hide();
-					this.checkForVictory();
+					chess.checkForVictory();
 				}
 			} 
 		});
 		obj.x= x;
+		obj.occupied =false;
 		obj.y= y;
 		obj.html= html;
 		return obj;
@@ -89,17 +92,19 @@ var chess={
 	createBishops: function(){
 		var board= document.getElementById("chess-board");
 		for(var i=0;i<2;i++){
-			this.black[i] = this.Bishop(0);
-			this.white[i] = this.Bishop(1);
-			this.black[i].box=this.boxs[(2*i)+1][0];
-			this.white[i].box=this.boxs[(2*i)+1][4];
-			board.appendChild(this.white[i].html);
-			board.appendChild(this.black[i].html);
+			this.bishops[0][i] = this.Bishop(0,i);
+			this.bishops[1][i] = this.Bishop(1,i);
+			this.bishops[0][i].box=this.boxs[(2*i)+1][0];
+			this.bishops[1][i].box=this.boxs[(2*i)+1][4];
+			this.bishops[0][i].box.occupied=true;
+			this.bishops[1][i].box.occupied=true;
+			board.appendChild(this.bishops[1][i].html);
+			board.appendChild(this.bishops[0][i].html);
 		}
 	},
 	checkForVictory: function(){
 		 for(var i=0;i<2;i++){
-		 	if(!((black[i].box==this.boxs[3][4] || black[i].box==this.boxs[1][4]) && (white[i].box==this.boxs[1][0] || white[i].box==this.boxs[4][2]))){
+		 	if(!((this.bishops[0][i].box==this.boxs[3][4] || this.bishops[0][i].box==this.boxs[1][4]) && (this.bishops[1][i].box==this.boxs[1][0] || this.bishops[1][i].box==this.boxs[4][2]))){
 		 		return 0;
 		 	}
 		}
@@ -110,22 +115,19 @@ var chess={
 		var h= (0.75*window.innerHeight);
 		var chessBoard= document.getElementById("chess-board");
 		var chessBoxs= document.getElementsByClassName("chess-box");
-		var bishops = document.getElementsByClassName("bishop");
-		chessBoard.style.height= (h);
+		chessBoard.style.height= h;
 		chessBoard.style.width= (h*1.25);
 		for(var i=0; i<chessBoxs.length;i++){
 			chessBoxs[i].style.height=(h*0.25);
 			chessBoxs[i].style.width=(h*0.25);
-		}
-		for(var i=0; i<4;i++){
-			bishops[i].style.height=(h*0.25);
-			bishops[i].style.width=(h*0.25);
-		}
-		for(var i=0;i<2;i++){
-			this.white[i].html.style.top = (this.white[i].box.x*(h*0.25));
-			this.white[i].html.style.left = (this.white[i].box.y*(h*0.25));
-			this.black[i].html.style.top = (this.black[i].box.x*(h*0.25));
-			this.black[i].html.style.left = (this.black[i].box.y*(h*0.25));
+		};
+		for(var i=0; i<2;i++){
+			for(var j=0;j<2;j++){
+				this.bishops[i][j].html.style.height=(h*0.25);
+				this.bishops[i][j].html.style.width=(h*0.25);
+				this.bishops[i][j].html.style.top = (this.bishops[i][j].box.x*(h*0.25));
+				this.bishops[i][j].html.style.left = (this.bishops[i][j].box.y*(h*0.25));
+			}
 		}
 	},
 	initArrays: function(){
@@ -133,8 +135,10 @@ var chess={
 		for(var i=0; i<5;i++){
 			this.boxs[i]= new Array(4);
 		};
-		this.white= new Array(2);
-		this.black= new Array(2);
+		this.bishops= new Array(2);
+		for(var i=0; i<2;i++){
+			this.bishops[i]= new Array(2);
+		};
 	},
 	init: function(){
 		this.initArrays();
