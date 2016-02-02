@@ -104,7 +104,7 @@ var chess={
 	},
 	checkForVictory: function(){
 		 for(var i=0;i<2;i++){
-		 	if(!((this.bishops[0][i].box==this.boxs[3][4] || this.bishops[0][i].box==this.boxs[1][4]) && (this.bishops[1][i].box==this.boxs[1][0] || this.bishops[1][i].box==this.boxs[4][2]))){
+		 	if(!((this.bishops[0][i].box==this.boxs[3][4] || this.bishops[0][i].box==this.boxs[1][4]) && (this.bishops[1][i].box==this.boxs[1][0] || this.bishops[1][i].box==this.boxs[3][0]))){
 		 		return 0;
 		 	}
 		}
