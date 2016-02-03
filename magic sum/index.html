@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/jquery-ui.min.css">
+<script src="./js/jquery.min(1.11.1).js"></script>
+<script src="./js/jquery-ui.min.js"></script>
+<style>
+*{
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body,html{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height:100%;
+}
+#place_dice{
+	display: inline-block;
+	width: 45%;
+	margin-left:3%;
+	text-align: center;
+	float: left;
+}
+#place_dice .drop_dice{
+	width: 56px;
+	height: 106px;
+	border-radius: 5px;
+	border: 1px solid #000;
+	box-shadow: 1px 1px 2px 0 #000;
+	padding: 0;
+}
+#place_dice table{
+	border-spacing: 20px;
+}
+#dice_wrapper{
+	display: inline-block;
+	width: 45%;
+	height: 500px;
+	margin-right:3%;
+	float: left;
+}
+#dice_wrapper .dice_cont{
+	margin: 10px;
+}
+.dice_cont{
+	display: inline-block;
+	width: 50px;
+	height: 100px;
+	border-radius:5px;
+	background-color: #999;
+	color:#eee;
+	cursor: pointer;
+}
+.dice_cont>.top_val{
+	width: 100%;
+	line-height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #eee;
+}
+.dice_cont>.bottom_val{
+	width: 100%;
+	line-height: 50px;
+	text-align: center;
+	border-top: 1px solid #eee;
+}
+
+</style>
+</head>
+<body>
+<div id="place_dice">
+	<table>
+		<tr>
+			<td id="sum1">0</td>
+			<td id="sum2">0</td>
+			<td id="sum3">0</td>
+			<td id="sum4">0</td>
+			<td id="sum5">0</td>
+			<td id="sum6">0</td>
+		</tr>
+		<tr>
+			<td id="sum7">0</td>
+			<td class="drop_dice" rowspan="2" data-i="0" data-j="0"></td>
+			<td class="drop_dice" rowspan="2" data-i="0" data-j="1"></td>
+			<td class="drop_dice" rowspan="2" data-i="0" data-j="2"></td>
+			<td class="drop_dice" rowspan="2" data-i="0" data-j="3"></td>
+		</tr>
+		<tr>
+			<td id="sum8">0</td>
+		</tr>
+		<tr>
+			<td id="sum9">0</td>
+			<td class="drop_dice" rowspan="2" data-i="2" data-j="0"></td>
+			<td class="drop_dice" rowspan="2" data-i="2" data-j="1"></td>
+			<td class="drop_dice" rowspan="2" data-i="2" data-j="2"></td>
+			<td class="drop_dice" rowspan="2" data-i="2" data-j="3"></td>
+		</tr>
+		<tr>
+			<td id="sum10">0</td>
+		</tr>
+	</table>
+</div>
+<div id="dice_wrapper">
+</div>
+<script>
+$(window).load(function(){
+	initMagicSumGame();
+});
+var values = [
+	[0,0,0,0],
+	[0,0,0,0],
+	[0,0,0,0],
+	[0,0,0,0],
+];
+var success_value = 6;
+var diceOptions={
+	revert: "invalid",
+	stop: function(){
+        // Make it properly draggable again
+        $(this).draggable('option','revert','invalid');
+    },
+};
+function initMagicSumGame(){
+	var ele="";
+	for(var i=0;i<7;i++){
+		for(var j=i;j<7;j++){
+			ele += '<div class="dice_cont"> <div class="top_val" data-val="'+i+'">'+i+'</div> <div class="bottom_val" data-val="'+j+'">'+j+'</div> </div>';
+		}
+	}
+	$('#dice_wrapper').html(ele);
+	$('.dice_cont').draggable(diceOptions);
+	$('.drop_dice').droppable({
+		drop: function(event,ui){
+	        var $this = $(this);
+	        
+	        // Check number of elements already in
+	        if($this.find('.dice_cont').length >= 1){
+	            // Cancel drag operation (make it always revert)
+	            ui.draggable.draggable('option','revert',true);
+	            return;
+	        }
+
+	        // Put dragged item into container
+	        ui.draggable.appendTo($this).css({
+	            top: '0px',
+	            left: '0px'
+	        });
+	        calculateScore();
+	    }
+	});
+	$('.dice_cont').click(function(){
+		var top = $(this).find('.top_val');
+		var bot = $(this).find('.bottom_val');
+		var temp = bot.data('val');
+		bot.data('val',top.data('val'));
+		bot.text(top.data('val'));
+		top.data('val',temp);
+		top.text(temp);
+	});
+	$('#place_dice').on('click','.dice_cont',function(){
+		calculateScore();
+	});
+}
+$('#dice_wrapper').droppable({
+	drop: function(event,ui){
+        var $this = $(this);
+
+        // Put dragged item into container
+        ui.draggable.appendTo($this).css({
+            top: '0px',
+            left: '0px'
+        });
+        
+        calculateScore();
+    }
+});
+function calculateScore(){
+	var success=true;
+	var s = [0,0,0,0,0,0,0,0,0,0];
+	$('.drop_dice').each(function(){
+        var $dc = $(this).find('.dice_cont');
+        if($dc.length!=0)
+        {
+        	values[$(this).data('i')][$(this).data('j')] = $dc.find('.top_val').data('val');
+        	values[($(this).data('i')+1)][$(this).data('j')] = $dc.find('.bottom_val').data('val');
+        }
+        else{
+        	success = false;
+        	values[$(this).data('i')][$(this).data('j')] = 0;
+        	values[($(this).data('i')+1)][$(this).data('j')] = 0;
+        }
+    });
+    
+    for(var i=0;i<values.length;i++){
+    	for(var j=0;j<values[i].length;j++){
+    		s[i+6] += values[i][j];
+    		s[j+1] += values[i][j];
+    	}
+    	s[0] += values[i][i];
+    	s[5] += values[i][3-i];
+    }
+    for(var i=0;i<s.length;i++){
+    	$('#sum'+(i+1)).html(s[i]);
+    	if(s[i]!=success_value)
+    	{
+    		success = false;
+    	}
+    }
+    if(success){
+    	alert('You did it');
+    }
+}
+</script>
+</body>
+</html>
