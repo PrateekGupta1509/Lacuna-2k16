@@ -110,6 +110,13 @@ body,html{
 $(window).load(function(){
 	initMagicSumGame();
 });
+var colors = [
+	[1,2,3,4];
+	[1,2,3,4];
+	[1,2,3,4];
+	[1,2,3,4];
+	[1,2,3,4];
+];
 var values = [
 	[0,0,0,0],
 	[0,0,0,0],
@@ -124,7 +131,7 @@ var diceOptions={
         $(this).draggable('option','revert','invalid');
     },
 };
-function initMagicSumGame(){
+function initColorMatchGame(){
 	var ele="";
 	for(var i=0;i<7;i++){
 		for(var j=i;j<7;j++){
