@@ -22,4 +22,6 @@
 	position: absolute;
 	background-repeat: no-repeat;
 	background-size: cover;
+	cursor: -webkit-grab;
+	cursor: grab;
 }
