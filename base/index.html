@@ -7,10 +7,13 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
 <body>
-	<div class="story_container" style="background-image:url(img/qwerty.jpg);display:none;">
+	<div id="game_loader">
+		<img src="img/preloader.gif" class="abs_center">
+	</div>
+	<div class="story_container" style="background-image:url(img/qwerty.jpg);">
 		<div class="storydet_container">
-			<div class="story_next" style="right:0;">Next ></div>
-			<div class="story_prev" style="left:0;">< Previous</div>
+			<div class="story_next story_but" style="right:0;">Next ></div>
+			<div class="story_prev story_but" style="left:0;">< Previous</div>
 
 			<div class="text_container">
 				
@@ -23,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="level5" class="puzzle_cont">
+	<div id="puzzle5" class="puzzle_cont">
 		<div class="puzzle_deto ver_center">
 			<div class="puzzle_deti abs_center"></div>
 		</div>
