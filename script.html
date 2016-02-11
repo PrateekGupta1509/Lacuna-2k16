@@ -1,41 +1,39 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
   font-family: octicons-anchor;
   src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
 }
 
-* {
-    box-sizing: border-box;
-}
-
-body {
-    width: 980px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-body .markdown-body {
-    padding: 45px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    word-wrap: break-word;
-}
-
-pre {
-    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
 .markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  color: #333;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
 }
 
 .markdown-body a {
-  background-color: transparent;
+  background: transparent;
 }
 
 .markdown-body a:active,
@@ -43,8 +41,30 @@ pre {
   outline: 0;
 }
 
+.markdown-body b,
 .markdown-body strong {
   font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
 }
 
 .markdown-body h1 {
@@ -57,6 +77,7 @@ pre {
 }
 
 .markdown-body hr {
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -67,7 +88,8 @@ pre {
 
 .markdown-body code,
 .markdown-body kbd,
-.markdown-body pre {
+.markdown-body pre,
+.markdown-body samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
@@ -101,16 +123,81 @@ pre {
   padding: 0;
 }
 
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .markdown-body input {
-  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
 }
 
 .markdown-body a {
-  color: #4078c0;
+  color: #4183c4;
   text-decoration: none;
 }
 
 .markdown-body a:hover,
+.markdown-body a:focus,
 .markdown-body a:active {
   text-decoration: underline;
 }
@@ -124,15 +211,14 @@ pre {
   border-bottom: 1px solid #ddd;
 }
 
-.markdown-body hr:before {
+.markdown-body hr:before,
+.markdown-body hr:after {
   display: table;
-  content: "";
+  content: " ";
 }
 
 .markdown-body hr:after {
-  display: table;
   clear: both;
-  content: "";
 }
 
 .markdown-body h1,
@@ -197,7 +283,9 @@ pre {
   margin-left: 0;
 }
 
-.markdown-body code {
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 12px;
 }
@@ -205,39 +293,21 @@ pre {
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
-.markdown-body .select::-ms-expand {
-  opacity: 0;
-}
-
-.markdown-body .octicon {
-  font: normal normal normal 16px/1 octicons-anchor;
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
   display: inline-block;
-  text-decoration: none;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.markdown-body .octicon-link:before {
-  content: '\f05c';
-}
-
-.markdown-body:before {
-  display: table;
-  content: "";
-}
-
-.markdown-body:after {
-  display: table;
-  clear: both;
-  content: "";
 }
 
 .markdown-body>*:first-child {
@@ -248,18 +318,18 @@ pre {
   margin-bottom: 0 !important;
 }
 
-.markdown-body a:not([href]) {
-  color: inherit;
-  text-decoration: none;
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
 }
 
-.markdown-body .anchor {
-  display: inline-block;
-  padding-right: 2px;
-  margin-left: -18px;
-}
-
-.markdown-body .anchor:focus {
+.markdown-body .headeranchor-link:focus {
   outline: none;
 }
 
@@ -269,39 +339,44 @@ pre {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
+  position: relative;
   margin-top: 1em;
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
 }
 
-.markdown-body h1 .octicon-link,
-.markdown-body h2 .octicon-link,
-.markdown-body h3 .octicon-link,
-.markdown-body h4 .octicon-link,
-.markdown-body h5 .octicon-link,
-.markdown-body h6 .octicon-link {
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
   color: #000;
   vertical-align: middle;
-  visibility: hidden;
 }
 
-.markdown-body h1:hover .anchor,
-.markdown-body h2:hover .anchor,
-.markdown-body h3:hover .anchor,
-.markdown-body h4:hover .anchor,
-.markdown-body h5:hover .anchor,
-.markdown-body h6:hover .anchor {
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
   text-decoration: none;
 }
 
-.markdown-body h1:hover .anchor .octicon-link,
-.markdown-body h2:hover .anchor .octicon-link,
-.markdown-body h3:hover .anchor .octicon-link,
-.markdown-body h4:hover .anchor .octicon-link,
-.markdown-body h5:hover .anchor .octicon-link,
-.markdown-body h6:hover .anchor .octicon-link {
-  visibility: visible;
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
 }
 
 .markdown-body h1 {
@@ -311,10 +386,6 @@ pre {
   border-bottom: 1px solid #eee;
 }
 
-.markdown-body h1 .anchor {
-  line-height: 1;
-}
-
 .markdown-body h2 {
   padding-bottom: 0.3em;
   font-size: 1.75em;
@@ -322,42 +393,22 @@ pre {
   border-bottom: 1px solid #eee;
 }
 
-.markdown-body h2 .anchor {
-  line-height: 1;
-}
-
 .markdown-body h3 {
   font-size: 1.5em;
   line-height: 1.43;
-}
-
-.markdown-body h3 .anchor {
-  line-height: 1.2;
 }
 
 .markdown-body h4 {
   font-size: 1.25em;
 }
 
-.markdown-body h4 .anchor {
-  line-height: 1.2;
-}
-
 .markdown-body h5 {
   font-size: 1em;
-}
-
-.markdown-body h5 .anchor {
-  line-height: 1.1;
 }
 
 .markdown-body h6 {
   font-size: 1em;
   color: #777;
-}
-
-.markdown-body h6 .anchor {
-  line-height: 1.1;
 }
 
 .markdown-body p,
@@ -366,7 +417,8 @@ pre {
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
-.markdown-body pre {
+.markdown-body pre,
+.markdown-body .admonition {
   margin-top: 0;
   margin-bottom: 16px;
 }
@@ -456,11 +508,12 @@ pre {
 
 .markdown-body img {
   max-width: 100%;
-  box-sizing: content-box;
-  background-color: #fff;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.markdown-body code {
+.markdown-body code,
+.markdown-body samp {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -486,11 +539,11 @@ pre {
   border: 0;
 }
 
-.markdown-body .highlight {
+.markdown-body .codehilite {
   margin-bottom: 16px;
 }
 
-.markdown-body .highlight pre,
+.markdown-body .codehilite pre,
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
@@ -500,7 +553,7 @@ pre {
   border-radius: 3px;
 }
 
-.markdown-body .highlight pre {
+.markdown-body .codehilite pre {
   margin-bottom: 0;
   word-break: normal;
 }
@@ -526,136 +579,325 @@ pre {
   content: normal;
 }
 
-.markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 11px;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
   border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
 }
 
-.markdown-body .pl-c {
-  color: #969896;
-}
-
-.markdown-body .pl-c1,
-.markdown-body .pl-s .pl-v {
-  color: #0086b3;
-}
-
-.markdown-body .pl-e,
-.markdown-body .pl-en {
-  color: #795da3;
-}
-
-.markdown-body .pl-s .pl-s1,
-.markdown-body .pl-smi {
+.markdown-body .admonition table {
   color: #333;
 }
 
-.markdown-body .pl-ent {
-  color: #63a35c;
+.markdown-body .admonition p {
+  padding: 0;
 }
 
-.markdown-body .pl-k {
-  color: #a71d5d;
-}
-
-.markdown-body .pl-pds,
-.markdown-body .pl-s,
-.markdown-body .pl-s .pl-pse .pl-s1,
-.markdown-body .pl-sr,
-.markdown-body .pl-sr .pl-cce,
-.markdown-body .pl-sr .pl-sra,
-.markdown-body .pl-sr .pl-sre {
-  color: #183691;
-}
-
-.markdown-body .pl-v {
-  color: #ed6a43;
-}
-
-.markdown-body .pl-id {
-  color: #b52a1d;
-}
-
-.markdown-body .pl-ii {
-  background-color: #b52a1d;
-  color: #f8f8f8;
-}
-
-.markdown-body .pl-sr .pl-cce {
-  color: #63a35c;
+.markdown-body .admonition-title {
   font-weight: bold;
+  margin: 0;
 }
 
-.markdown-body .pl-ml {
-  color: #693a17;
-}
-
-.markdown-body .pl-mh,
-.markdown-body .pl-mh .pl-en,
-.markdown-body .pl-ms {
-  color: #1d3e81;
-  font-weight: bold;
-}
-
-.markdown-body .pl-mq {
-  color: #008080;
-}
-
-.markdown-body .pl-mi {
+.markdown-body .admonition>.admonition-title {
   color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
   font-style: italic;
 }
 
-.markdown-body .pl-mb {
-  color: #333;
-  font-weight: bold;
-}
-
-.markdown-body .pl-md {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.markdown-body .pl-mi1 {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.markdown-body .pl-mdr {
-  color: #795da3;
-  font-weight: bold;
-}
-
-.markdown-body .pl-mo {
-  color: #1d3e81;
-}
-
-.markdown-body kbd {
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
   display: inline-block;
-  padding: 3px 5px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #fcfcfc;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.markdown-body .plan-price-unit {
-  color: #767676;
-  font-weight: normal;
+.headeranchor:before {
+  content: '\f05c';
 }
 
 .markdown-body .task-list-item {
@@ -667,122 +909,194 @@ pre {
 }
 
 .markdown-body .task-list-item input {
-  margin: 0 0.35em 0.25em -1.6em;
+  margin: 0 4px 0.25em -20px;
   vertical-align: middle;
 }
 
-.markdown-body .plan-choice {
-  padding: 15px;
-  padding-left: 40px;
-  display: block;
-  border: 1px solid #e0e0e0;
-  position: relative;
-  font-weight: normal;
-  background-color: #fafafa;
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
 }
 
-.markdown-body .plan-choice.open {
-  background-color: #fff;
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
 }
 
-.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
-  display: block;
-}
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
 
-.markdown-body .plan-choice-free {
-  border-radius: 3px 3px 0 0;
-}
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
 
-.markdown-body .plan-choice-paid {
-  border-radius: 0 0 3px 3px;
-  border-top: 0;
-  margin-bottom: 20px;
-}
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
 
-.markdown-body .plan-choice-radio {
-  position: absolute;
-  left: 15px;
-  top: 18px;
-}
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
 
-.markdown-body .plan-choice-exp {
-  color: #999;
-  font-size: 12px;
-  margin-top: 5px;
-}
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
 
-.markdown-body .plan-choice-seat-breakdown {
-  margin-top: 10px;
-  display: none;
-}
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-.markdown-body :checked+.radio-label {
-  z-index: 1;
-  position: relative;
-  border-color: #4078c0;
-}
-</style><title>script</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-lacuna-story" class="anchor" href="#lacuna-story" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lacuna Story</h1>
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
 
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>script</title></head><body><article class="markdown-body"><h1 id="lacuna-story"><a name="user-content-lacuna-story" href="#lacuna-story" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Lacuna Story</h1>
 <blockquote>
-<p>"Hello, Mr. Holmes," said the bearded old man who had just entered The Stranger's Room.
-   The older and comparatively less famous Holmes brother looked up in surprise. He was never interrupted at the Diogenes. He had never been surprised by an unwanted visitor in his entire life. Taking a sip of his Earl Grey, Mycroft looked questioningly at the intruder. Seeking an answer to the obvious question, he went ahead and stated it, "Hello. Who might you be?"</p>
-
-<p>"Maupertuis," he replied. Responding to Mycroft's continued expression of confusion, Maupertuis went on, "Perhaps you know me better as 'The Baron'."</p>
-
-<p>The Baron noted with much pleasure how Mycroft grimaced at his name, though he still felt disappointed at not having been recognized immediately. Surely the buffoons at MI6 were not, well, buffoons. Well, he had to make sure. Just in case. "Mr. Holmes. I come in peace. But before you question the purpose of my visit, you must first prove your mettle."</p>
+<p>&ldquo;Hello, Mr. Holmes,&rdquo; said the bearded old man who had just entered The Stranger&rsquo;s Room at The Diogenes.<br />
+The older and comparatively less famous Holmes brother looked up in surprise. He had never before been interrupted at this establishment. It had been a long time since someone took him by surprise. Sipping his Earl Grey as calmly as ever, Mycroft looked questioningly at the intruder. Seeking an answer to the obvious, and realizing that he would receive none till he asked, he said, &ldquo;Hello. Who might you be?&rdquo;<br />
+&ldquo;Maupertuis,&rdquo; he replied. Responding to Mycroft&rsquo;s continued expression of confusion, Maupertuis went on in a voice which reeked of egomania, &ldquo;Perhaps you know me better as &lsquo;The Baron&rsquo;.&rdquo;<br />
+The grimace on Mycroft’s face didn’t go unnoticed by the Baron, though he still felt disappointed at not having been recognized immediately. Surely the buffoons at MI6 were not, well, buffoons. Well, he had to make sure. Just in case. He couldn’t possibly have somebody this incompetent as his business partner. Definitely not after the fruitful partnership that was brought to an abrupt end due to the demise of his colleague. &ldquo;Mr. Holmes. You’re one of the few people lucky enough to hear the words I am about to say. However, I do question your competence, considering you did not recognize me. But before we discuss business, you must first prove your mettle to me.&rdquo;</p>
 </blockquote>
-
-<h6>
-<a id="user-content-chess-puzzle" class="anchor" href="#chess-puzzle" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Chess puzzle</h6>
-
+<h6 id="chess-puzzle"><a name="user-content-chess-puzzle" href="#chess-puzzle" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chess puzzle</h6>
 <blockquote>
-<p>Sherlock woke to his phone pinging. He could feel adrenaline pumping through his veins as his hand crept forward to pick up the phone. One message, an unknown number. Was this spam or was this Mycroft keeping his promise? Hopefully the latter. One could only have so much fun in a mind palace, grinned Sherlock as he opened the message.</p>
+<p>Sherlock took another puff of his pipe as he stared out into the busy bustling marketplace of Baghdad. He was bored. Bored. How could I not be bored? My brother asks me to stay here pretending to be dead. Sherlock winced at the bitter irony. Of all the things he had in his previous life, the one thing he missed the most after he had to fake his death was John. His first friend. His only friend. And he had had to betray him. Sherlock had faked his death to protect John, but that didn’t lessen the pain of lying to him. <br />
+His reverie was interrupted by his phone beeping. He could feel adrenaline pumping through his veins as his hand crept forward to pick up the phone. Only Mycroft had the number to this phone. One message, an unknown number. Was this another message from the telecom service providers or was this Mycroft keeping his promise? Hopefully the latter. Hopefully this was a clue to one of Moriarty&rsquo;s henchmen. Maybe, just maybe. One can only have so much fun in a mind palace, grinned Sherlock as he opened the message.</p>
 </blockquote>
-
-<h6>
-<a id="user-content-qr-sudoku-roadblock" class="anchor" href="#qr-sudoku-roadblock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QR Sudoku Roadblock</h6>
-
+<h6 id="qr-sudoku-roadblock"><a name="user-content-qr-sudoku-roadblock" href="#qr-sudoku-roadblock" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>QR Sudoku Roadblock</h6>
 <blockquote>
-<p></p>
+<p>Big brother really loves playing his games, smiled Sherlock as he celebrated another of his small victories. He had never settled in this shady hotel, always yearning to leave. Even if home was naught but a memory now. At least now he had something to keep his mind occupied. Something to keep his guilty conscience silent. None of that matters now. Moriarty’s web must be dismantled for Moriarty’s death to have any finality, any meaning. And Mycroft had just guided him towards the first thread in the web. The first one to be broken.<br />
+A month had passed now, and Sherlock had been inducted into the ranks of the silent monks at the temple. Only this final test remained to prove that he had achieved inner peace and could be one of them. After this test was done, he could unveil Moriarty’s accomplice.  Disguised as a monk, she smuggled drugs right under their very noses. Drugs that had once funded Moriarty&rsquo;s plans. Not anymore though. Once Sherlock had cleared this test and earned the brotherhood of the monks, her game was up.<br />
+Sherlock entered the test chamber to find all the monks seated on the stone floor in a circle. He sat gracefully in the centre at the place designated for him. A monk rose up silently and offered him a bowl with a sweet smelling fluid in it. Sherlock looked at his reflection in the clear green liquid, and drank it without a second thought.</p>
 </blockquote>
-
-<h6>
-<a id="user-content-qr-sudoku-roadblock" class="anchor" href="#qr-sudoku-roadblock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QR Sudoku Roadblock</h6>
-
+<h6 id="filter-puzzle"><a name="user-content-filter-puzzle" href="#filter-puzzle" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Filter puzzle</h6>
 <blockquote>
-<p></p>
+<p>The monks would carry out their own brand of justice. The possibility of her escaping was nil. This route for drugs was now closed. However, this felt too simple. None of Moriarty’s panache was visible. Smuggling drugs and making money from it seemed too mundane for a man of Moriarty&rsquo;s personality. Was there another game afoot? Sherlock hoped not. He would just have to look through her sleeping chambers and make sure to find anything that could lead him to anything else. Crush every plot and subplot Moriarty had laid out before killing himself that fateful day on the rooftop at Bart&rsquo;s. He could almost see that sick man smile that sick smile of his before him, basking in his victories, bathing in the chaos that he had created. <br />
+Sherlock had been in her chamber for a few minutes and was certain the only thing of interest or value in the room was the scroll he held in his hand. A scroll disguised to look old, but no technique this primitive could fool him. The scroll was new, and what it contained must be important.</p>
 </blockquote>
-
-<h6>
-<a id="user-content-qr-sudoku-roadblock" class="anchor" href="#qr-sudoku-roadblock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QR Sudoku Roadblock</h6>
-
+<h6 id="brainfuck"><a name="user-content-brainfuck" href="#brainfuck" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Brainfuck</h6>
 <blockquote>
-<p></p>
+<p>An address in New Delhi? Things were getting interesting. Maybe a shipment was due here. Maybe a new deal to be struck? Maybe another one of Moriarty’s seemingly unrelated preposterous plots? The possibilities were endless, and Sherlock was determined to see this out to the very end.<br />
+Sherlock was here. An old dilapidated and seemingly abandoned house awaited him. Looking around the neighbourhood to check for lookouts and praying to God that the door wasn&rsquo;t booby trapped, he entered the place. He searched room after room, surprised that the house was empty, but even his trained eyes could not make out any stashes of drugs or weapons or technology that could possibly entertain Moriarty&rsquo;s consciousness. Did they know he was coming? Surely, they must have guessed someone was on their trail once the woman in the monastery had been dealt with. Had they escaped? He knew it was too much to hope that they had abandoned their plans in fright of him. If only they realized how much of a threat I am. <br />
+He came back to the living room. Nothing seemed out of place. Almost nothing. He walked up to the cold fireplace and bent down to inspect it and with a proud egotistic smirk, he removed the false wall behind the fireplace to reveal a door, enforced with steel, sleek and modern unlike the rest of the house. And guarding the door was the most ridiculous lock Sherlock had ever seen.</p>
 </blockquote>
-
-<h6>
-<a id="user-content-qr-sudoku-roadblock" class="anchor" href="#qr-sudoku-roadblock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QR Sudoku Roadblock</h6>
-
+<h6 id="directionalyst"><a name="user-content-directionalyst" href="#directionalyst" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Directionalyst</h6>
 <blockquote>
-<p></p>
+<p>With the door now open, Sherlock crawled through to what resembled a dusty store room. Empty weapon crates. So Sherlock&rsquo;s fears had not been ill founded. Drugs were not the only thing that were being smuggled. Moriarty had been planning on war in South Asia. And if weapons were being smuggled, it wasn’t too much to assume the same about explosives. <br />
+What interested Sherlock more than the weapons, however, was a small map chucked hastily into the dustbin. He picked it up, mentally laughing at Moriarty’s men for leaving such an easy trail of breadcrumbs to follow. A small house in a locality for the wealthy had been marked in red. A posh residence, no doubt, but an explosion here would not lead to many casualties. Maybe this was an assassination. Maybe this wasn&rsquo;t even a bombing. Too many possibilities. Not enough breadcrumbs. <br />
+Sherlock disembarked from the cab, and looked around. Just another society where the rich fed off the poor and lived in style, with the poor serving them in the menial positions they were assigned. Nothing surprising here. However, the house Sherlock was interested in looked ominously quiet. Not even any security personnel. This house looked promising, but Sherlock needed to be careful here. Examining the open gate for any traps, he stepped inside. Picking the lock of the front door was easy, and Sherlock opened the door. The house was bare, and the only thing in it that wasn’t the floor or the walls was one of the biggest bombs Sherlock had ever seen. It was a miracle that Moriarty’s men had managed to assemble it in here without the authorities finding out.</p>
 </blockquote>
-
-<h6>
-<a id="user-content-qr-sudoku-roadblock" class="anchor" href="#qr-sudoku-roadblock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QR Sudoku Roadblock</h6>
-
+<h6 id="map-coordinates"><a name="user-content-map-coordinates" href="#map-coordinates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Map Coordinates</h6>
 <blockquote>
-<p></p>
+<p>His job here seemed to be done. The bomb was defused. Sherlock looked around the house but could find nothing else of any interest whatsoever. He had a million burning questions in his mind but no answers whatsoever. The only fact about the situation clear to Sherlock was that someone wanted to start a war. War was profitable for people of Moriarty’s stature and acumen. But who planted this bomb? How did they manage to accomplish it without the authorities finding out? The frustration of not knowing was almost unbearable. Worse than that, he could almost see Moriarty haunting him, laughing at his inadequacy. So Sherlock did what he always did when he was frustrated, which was to actually do his job as a consultant detective in whatever part of the world he happened to be in. All he could do now was wait for big brother to send him a lead. And maybe help the Delhi police out with some of their cases.<br />
+It had been just a week. But a week can be so long. Sherlock was already bored out of his wits. There were no interesting murders happening around town which could tax some of his mental facilities. Boring. He kept checking the dark corners of the Internet, waiting for a message from his brother. Waiting. He checked and rechecked for a message, and soon his patience was rewarded. He got a call from the UK Embassy saying they had a package waiting for him. Mycroft should have sent me what he wanted to send me electronically. Who uses the mail these days? A short visit and a flash of his fake passport later, he had the package in his hands. When he opened the parcel once he was back at the hotel, he found a box sealed with another of his brother&rsquo;s mischievous puzzles. Oh, Mycroft, when will you ever grow up? </p>
 </blockquote>
-
-<h6>
-<a id="user-content-qr-sudoku-roadblock" class="anchor" href="#qr-sudoku-roadblock" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QR Sudoku Roadblock</h6>
-
+<h6 id="magic-square"><a name="user-content-magic-square" href="#magic-square" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Magic square</h6>
 <blockquote>
-<p></p>
+<p>Dearest baby brother,<br />
+I hope my letter finds you in good health. Surely you must be enjoying your stay in India. Sadly for us, your visit must be cut short. We have urgent business to deal with. We have a chance to put down another of Moriarty&rsquo;s lieutenants, Herr Trepoff. Luckily for us, he has just killed his lovely wife, may her soul rest in peace. Considering his influential position in Germany, the lads at MI6 are certain he will get away with it. However, I have called in several favours to get you into the jury that shall decide Trepoff&rsquo;s fate. It is imperative that you convince the jury of Trepoff&rsquo;s guilt. Pack your things and get to Hamburg immediately, little brother. May luck be with you, because God only knows how much you might need it.<br />
+Yours truly,<br />
+Mycroft <br />
+Sherlock was on the next flight to Hamburg. It was seldom that you got the opportunity to take down one of Moriarty’s men this easily. Never did they provide themselves on a silver platter. Prove Trepoff guilty and he would be done with. He would no longer be able to serve in the position that he was currently in. But that was obviously easier said than done, considering this was one of Moriarty&rsquo;s elite. Sherlock knew that everything could go wrong in the blink of an eye. He had to proceed with caution.<br />
+Sherlock looked around the room. He had broken into the offices of the law firm that was representing Trepoff, and was now in the room of the man that was representing him in court. Why can’t I remember his name? He reminds me of someone back home. But I’ll be damned if I can’t remember who that is either.  Sherlock had long since figured out how Trepoff planned to evade justice. Rather than focusing on trying to hide the evidence, all he was doing was making sure the jury did not pass a guilty verdict. Trepoff&rsquo;s lawyer had started scaring the jury into submission and unless Sherlock was able to get some leverage on the lawyer, Trepoff would surely walk free. None of the members of the jury seemed to be of particularly strong will, and it was up to him to rid them of this danger lurking over their heads. Breaking into the lawyer&rsquo;s office was easy, and so was breaking into his laptop. Logging into his email, Sherlock looked over the conversation history that the lawyer and his murderous client shared. Strange. Just one mail.<br />
+ ###### Zip the mystery<br />
+This was all the leverage Sherlock needed. Trepoff&rsquo;s lawyer would no longer pose a threat to the case. He had him now. If only I could remember his name too. Sherlock enjoyed a rare moment of satisfaction. He headed back to his hotel, and just a few days later, the judge declared Trepoff guilty.<br />
+Sherlock was satisfied with this victory but he thirsted for more. There had been no word from Mycroft, so Sherlock deduced that his elder brother had no leads either. He didn’t really want to go this way, but the desperation was getting to him. He would have to talk to Irene. He needed to go to Amsterdam.<br />
+Irene was being her usual dominating self. She could dominate the entire human race if she just chose to do so. Up to her usual ploys, she had a big smile on her face, and her eyes sparkled with mischief. Showing him the love he yearned for but just not enough. Never enough. Sherlock knew that thing<br />
+s with her could never work. So he tried to focus on the business at hand and not her lovely, lovely lips. Irene. How do you do this? How do you make me so weak? Sherlock weakly cleared his throat and said, “Irene. I’m here because I need something.”<br />
+The spark in Irene’s eyes refused to go away. “Isn’t everyone?” she asked him in the sweetest voice Sherlock had ever heard. Why does every word you say sound sweeter than the last? Sherlock could no longer help it. He was trapped. <br />
+Irene could sense the helplessness Sherlock was experiencing, and she loved every minute of it. Putting the poor boy out of his misery, she handed him a phone and asked him to solve her problem. “Oh come on, Sherlock. Do something clever.”</p>
 </blockquote>
-
-
-</article>
-
-</body></html>
+<h6 id="1-2-3"><a name="user-content-1-2-3" href="#1-2-3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1-2-3</h6>
+<blockquote>
+<p>Sherlock looked up from the puzzle she had given him, almost like a school child looking up for praise from his schoolmaster. Oh, the magic you hold over me.  &ldquo;Oh Sherlock, did you not want to talk business?&rdquo; she laughed, relenting and letting her hold over Sherlock go, after which he seemed to come out of his trance, stammering out his request for information on any of Moriarty’s remaining men, and Irene obliged him. <br />
+If Sherlock acted quickly, he could bring an end to Moriarty&rsquo;s entire empire with a single blow. Irene had information on Moriarty’s second in command, a man feared by the few who knew of his existence, a man referred to as the Baron. He was an old man named Maupertuis and having spent the last fifteen years masquerading as the respectable business head of the Netherland-Sumatra Company, he had made the mistake of keeping the company going after he went on the run. A new branch of the firm had suddenly opened in Romania, so it seemed likely that he was somewhere nearby. He wouldn&rsquo;t be stupid enough to actually base himself near the offices but he must be somewhere in that part of Europe. Irene had an informant in Brussels who could give Sherlock Maupertuis&rsquo; location. <br />
+Sherlock left the next morning for Brussels. Irene had already arranged for her informant to drop off all relevant information, and just for the fun of it, she had asked him to put it in the form of a puzzle. As soon as Sherlock reached Brussels, he headed to the drop point, a park close to the railway station. He sat inconspicuously on the third bench from the right, the bench that they had decided on. Reaching under his seat, he extracted the envelope waiting for him. He smiled fondly as he opened it, excited about the future.</p>
+</blockquote>
+<h6 id="poster"><a name="user-content-poster" href="#poster" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a># Poster</h6>
+<blockquote>
+<p>Sherlock had all that he needed. The Baron would soon come to justice. He was headed to Belgrade International Airport.<br />
+However, at the airport, the customs officials had other plans. This was unacceptable. His passport had worked flawlessly this far. Mycroft had arranged for the passport himself and it had gotten him in and out of more countries than he cared to count. What could possibly have gone wrong tis time?<br />
+Sherlock&rsquo;s thoughts were interrupted by a customs official, &ldquo;Call for you, Mr. Bronson.&rdquo; So there was no problem with his fake identity. Why then was he in a small cell at the airport? Sherlock picked up the phone and was lewdly surprised to find his brother on the other end. <br />
+&ldquo;Mycroft, get me out of here this instant,&rdquo;said Sherlock into the receiver. <br />
+&ldquo;I&rsquo;m sorry, little brother. Of course you can leave. Just not to Serbia. You can&rsquo;t have Maupertuis.&rdquo;<br />
+Sherlock was stunned. How was Mycroft possibly in cahoots with The Baron? This seemed to make no sense. Mycroft continued, &ldquo;He helped us eliminate everyone else Moriarty trusted. We must let him be.&rdquo; And just like that, the line was dead. Just like Sherlock&rsquo;s faith in his brother.<br />
+Sherlock entered his small cell a different man from the one who had exit it. He sat there quietly as the official restrained him to his chair. He was in total despair. The official then, to Sherlock&rsquo;s great surprise, brought in a package and placed it quietly within his handcuffed arms&rsquo; reach. The man then just as silently removed Sherlock&rsquo;s restraints and left the room. Sherlock ripped open the package with trembling fingers, the fingers of a man who no longer has anything to lose.</p>
+</blockquote>
+<h6 id="colour-match-sorry-for-misleading-you-sherlock-maupertuis-plane-is-in-hangar-number-3-hide-on-board-sincerely-yours-mycroft"><a name="user-content-colour-match-sorry-for-misleading-you-sherlock-maupertuis-plane-is-in-hangar-number-3-hide-on-board-sincerely-yours-mycroft" href="#colour-match-sorry-for-misleading-you-sherlock-maupertuis-plane-is-in-hangar-number-3-hide-on-board-sincerely-yours-mycroft" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Colour match-Sorry for misleading you Sherlock. Maupertuis&rsquo; plane is in hangar number 3. Hide on board. Sincerely yours, Mycroft.</h6>
+<blockquote>
+<p>Sherlock was stunned at the message he had just received. He rushed out of his cell out into a surprisingly empty corridor. Not a single guard or official was in sight. Retrieving his belongings from the empty guard&rsquo;s desk, he started sprinting. He ran to hangar number 3, which was also very conveniently unguarded, and hid on board the aircraft. And waited. And waited. And fell asleep.<br />
+Sherlock woke up with a jerk. The aircraft was up in the sky, he was sure of it. Cursing himself inwardly, he tried to analyse the situation. Apparently Maupertuis had boarded the plane and they were flying to Siberia. This was the worst possible situation he could be in. Judging by how rich The Baron was, there must be attendants on board. Two attendants maybe. Not more. <br />
+He exited the luggage cabin with a fire in his eye. This was it. Moriarty&rsquo;s last thread. Break this, and his whole web would be unravelled. He needed to take down everyone on board the aircraft, and even then, the craft would land in Siberia. There was no way to reach the pilot&rsquo;s cabin from the passengers&rsquo; cabin in this model. The rich do believe in keeping their affairs private, Sherlock noted grimly. He was now in the attendants&rsquo; room, with both the attendants engrossed in conversation, probably cursing their rich employer from the tone of their voices. Taking them down was easy; none of them was trained in combat. The odds were slightly better now.<br />
+Sherlock walked into the cabin like he owned the place, making The Baron almost spill his drink in surprise. The Baron reached for the drawer in the table next to him, but Sherlock was quicker. Grabbing a hold of The Baron&rsquo;s wrist, Sherlock broke it with a twist of his arm. Looking into the drawer, Sherlock found a Magnum .52. Sherlock looked in horror at the weapon in his hand.<br />
+This was Moriarty&rsquo;s last agent. Surely he deserved this. Surely. The last thread in the intricate web that Moriarty had spun. This man needed to die for the good of the rest of the world. But Sherlock just couldn&rsquo;t bring himself to do it. He couldn&rsquo;t pull the trigger. Maupertuis saw Sherlock hesitating, and tried to capitalize on the situation. The duo struggled for supremacy, and this struggle ended only once Sherlock pulled the trigger.<br />
+This was no time to panic. The plane was going to land in Serbia. He would surely be caught and tortured. He could not escape once he landed. All he could do now was send a message for help to his brother from Maupertuis&rsquo; computer. And wait. He was surprised by his brother&rsquo;s quick reply.</p>
+</blockquote>
+<h6 id="the-dancing-man-gif"><a name="user-content-the-dancing-man-gif" href="#the-dancing-man-gif" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The dancing man gif</h6>
+<blockquote>
+<p>Sherlock couldn&rsquo;t help but laugh. His brother was sending him puzzles even at a time like this. He would find his brother in Serbia now, all he needed to do was get captured. It was all going to be okay.<br />
+John sighed with relief as his fingers typed out the last few words of his latest blog. After months of heckling, Sherlock had finally told him about how he had dismantled Moriarty’s network. But he knew that Sherlock wasn’t sharing his whole story. There were a few loopholes and inconsistencies. Though John respected Sherlock too much to question his story, he couldn’t possibly write a lie in his memoirs of Sherlock’s life. He inhaled deeply. This is the only possible way, he thought as he selected</p>
+</blockquote></article></body></html>

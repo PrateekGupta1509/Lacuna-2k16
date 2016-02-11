@@ -1,0 +1,170 @@
+<html>
+<head>
+	<style type="text/css">
+		body {
+			font-family: 'cambria math', sans-serif;
+		}
+		.black{
+			background-color: #000;
+			padding: 0;
+			margin: 0;
+		}
+		.white {
+			background-color: #FFF;
+			padding: 0;
+			margin: 0;
+		}
+		.cont
+		{
+			width: 84vh;
+			border: 0.5vh double #000;
+			padding: 5px;
+			display: inline-block;
+			/*text-align: center;*/
+		}
+		.item
+		{
+			display: inline-block;
+			width:4vh;
+			height:4vh;
+		}
+		.holder {
+			margin-top: 2vh;
+			width: 17vh;
+			display: inline-block;
+			vertical-align: top;
+			text-align: right;
+		}
+		.holder div{
+			display: block;
+			width:100%;
+			height:4vh;
+			margin-bottom: -1px;
+		}
+		.top {
+			display: block;
+			margin-left:19vh;
+		}
+		.top div{
+			/*float: left;*/
+			width:4vh;
+			display: inline-block;
+			vertical-align: bottom;
+			text-align: center;
+			margin-right: -4px;
+		}
+	</style>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	
+</head>
+<body>
+<!-- <div class="holder">
+<div>7 2 4 4</div>
+</div> -->
+<div>
+	<div></div>
+</div>
+
+<div class="top">
+	<div>7<br>2<br>1<br>7</div>
+	<div>1<br>1<br>1<br>1<br>1<br>1<br>1</div>
+	<div>1<br>3<br>1<br>1<br>1<br>1<br>3<br>1</div>
+	<div>1<br>3<br>1<br>1<br>1<br>1<br>3<br>1</div>
+	<div>1<br>3<br>1<br>1<br>1<br>1<br>3<br>1</div>
+	<div>1<br>1<br>1<br>2<br>1<br>1</div>
+	<div>7<br>1<br>1<br>1<br>7</div>
+	<div>1<br></div>
+	<div>2<br>1<br>6<br>2</div>
+	<div>2<br>1<br>5<br>1<br>1</div>
+	<div>3<br>1<br>5<br>3</div>
+	<div>1<br>1<br>2<br>3<br>1<br>2<br>1<br></div>
+	<div>3<br>2<br>1<br>3<br>3<br>1<br>1</div>
+	<div>5<br>1<br>2</div>
+	<div>7<br>1<br>4<br>1<br>1</div>
+	<div>1<br>1<br>1<br>1<br>2<br></div>
+	<div>1<br>3<br>1<br>1<br>1<br>1<br>2<br></div>
+	<div>1<br>3<br>1<br>1<br>7<br>1<br></div>
+	<div>1<br>3<br>1<br>3<br>2<br>2<br></div>
+	<div>1<br>1<br>7<br>1<br>1</div>
+	<div>7<br>3<br>1<br>1<br></div>
+</div>
+<div>
+	<div class="holder">
+		<div> 7 2 7</div>
+		<div> 1 1 1 1 1 1</div>
+		<div> 1 3 1 3 1 3 1</div>
+		<div> 1 3 1 1 1 1 3 1</div>
+		<div> 1 3 1 2 1 1 3 1</div>
+		<div> 1 1 1 2 1 1</div>
+		<div> 7 1 1 1 7</div>
+		<div> </div>
+		<div> 2 3 1 2</div>
+		<div> 1 1 1 1 1 1</div>
+		<div> 3 1 1 4 3</div>
+		<div> 1 1 2 3 1 4</div>
+		<div> 6 3 2 1 2</div>
+		<div> 3 2 2 2</div>
+		<div> 7 5 1 3</div>
+		<div> 1 1 3 3 4</div>
+		<div> 1 3 1 3 2 1 2</div>
+		<div> 1 3 1 1 1 1</div>
+		<div> 1 3 1 1 1 3 3</div>
+		<div> 1 1 1 2 1 1 2</div>
+		<div> 7 3 3 1</div>
+	</div>
+	<div class="cont">
+	</div>
+</div>
+<script src="md5.min.js"></script>
+<script type="text/javascript">
+	var qr="f4ed3a1660d08c32a10768f517efaa7a";
+	var game=[];
+
+for (i=0;i<21;i++) {
+	game[i] = [];
+	for (j=0;j<21;j++) {
+		game[i][j]=Math.floor(Math.random() * 2);
+	}
+}
+
+var items="";
+for (i=0;i<21;++i) {
+	for (j=0;j<21;++j) {
+		if (game[i][j]==0) {
+			var col='white';
+		}
+		else {
+			var col='black'
+		}
+		items = items+'<div class="item '+col+'"></div>';
+	}
+};
+var ans = "f4ed3a1660d08c32a10768f517efaa7a";
+var hash="";
+var str="";
+	$('.cont').html(items);
+
+	$('.item').click(function(){
+		var x=parseInt($(this).index()/21);
+		var y=$(this).index()%21;
+		if ($(this).hasClass("white")==1) {
+			$(this).removeClass('white').addClass('black');
+			game[x][y]=1;
+			str = game.toString()
+			hash = md5(str);
+		}
+		else {
+			$(this).removeClass('black').addClass('white');
+			game[x][y]=0;
+			str = game.toString()
+			hash = md5(str);
+		}
+		if (hash==ans) {
+			alert("Congrats! You did it!")
+		}
+	})
+
+console.log("Designed by Suvigya Vijay :)")
+</script>
+</body>
+</html>
