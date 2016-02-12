@@ -7,12 +7,22 @@
 	<style type="text/css">
 	*{box-sizing:border-box; } 
 	html,body{padding: 0;margin: 0;position: absolute;top:0;left: 0;height: 100%;width: 100%;}
-
+	#level4{
+		min-height: 100vh;
+		background: url('dir_back.jpg');
+	}
+	.abs_center{
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		margin: auto;
+	}
 	.level4grid
 	{
 		width:420px;
 		height: 420px;
-		background-color: red;
 	}
 	#level4 .level4box
 	{
@@ -20,7 +30,6 @@
 		width: 60px;
 		height: 60px;
 		margin: 5px ;
-		background-color: blue;
 		display: inline-block;
 		color:white;
 		text-align: center;
@@ -32,11 +41,7 @@
 		background-color: transparent;
 		visibility: hidden;
 	}
-	#level4 .level4box.visited
-	{
-		background-color: grey;
-	}
-	#level4 .level4box.sel,#level4 .level4box.fin
+	#level4 .level4box.fin
 	{
 		background-color: black;
 	}
@@ -181,7 +186,7 @@ function level4init()
 
 	function generategrid()
 	{
-		var html = '<div class="level4grid">';
+		var html = '<div class="level4grid abs_center">';
 		for(i=0;i<grid.length;++i)
 		{
 			for(j=0;j<grid[i].length;++j)
@@ -189,19 +194,19 @@ function level4init()
 				
 				if(grid[i][j]==0)
 				{
-					html+='<div class="level4box nocolor" data-x="'+i+'" data-y="'+j+'"><div class="valcont">'+grid[i][j]+'</div></div>';
+					html+='<div class="level4box nocolor" data-x="'+i+'" data-y="'+j+'"><div class="valcont" data-val="'+grid[i][j]+'" style="background:url(./white/w'+grid[i][j]+'.svg);"></div></div>';
 				}
 				else if(grid[i][j]=='fin')
 				{
-					html+='<div class="level4box fin" data-x="'+i+'" data-y="'+j+'"><div class="valcont">'+grid[i][j]+'</div></div>';	
+					html+='<div class="level4box fin" data-x="'+i+'" data-y="'+j+'"><div class="valcont" data-val="'+grid[i][j]+'" style="background:url(./white/w'+grid[i][j]+'.svg);"></div></div>';	
 				}
 				else if((i==(row - 1) && j==0))
 				{
-					html+='<div class="level4box sel" data-x="'+i+'" data-y="'+j+'"><div class="valcont">'+grid[i][j]+'</div></div>';	
+					html+='<div class="level4box sel" data-x="'+i+'" data-y="'+j+'"><div class="valcont" data-val="'+grid[i][j]+'" style="background:url(./red/r'+grid[i][j]+'.svg);"></div></div>';	
 				}
 				else
 				{
-					html+='<div class="level4box" data-x="'+i+'" data-y="'+j+'"><div class="valcont">'+grid[i][j]+'</div></div>';
+					html+='<div class="level4box" data-x="'+i+'" data-y="'+j+'"><div class="valcont" data-val="'+grid[i][j]+'" style="background:url(./white/w'+grid[i][j]+'.svg);"></div></div>';
 
 				}
 			}
@@ -223,7 +228,7 @@ function level4init()
 	function showdir(t)
 	{
 		var flag=0; //not found
-		var x=$(t).data('x'),y=$(t).data('y'),val=parseInt($(t).find('.valcont').html());
+		var x=$(t).data('x'),y=$(t).data('y'),val=parseInt($(t).find('.valcont').data('val'));
 
 		function getalloweddir()
 		{
@@ -291,18 +296,21 @@ function level4init()
 		// console.log($(t).index(),dirmap[$(this).data('index')].dc,parseInt($(t).find('.valcont').html()));
 		$(this).siblings().hide();
 		// console.log($(this).siblings());
-		
-		dirmap[$(this).data('index')].num = parseInt($(t).find('.valcont').html()) ;
+		var $box = $(t).find('.valcont');
+		dirmap[$(this).data('index')].num = parseInt($box.data('val')) ;
 		$(t).addClass('visited').removeClass('sel');
+		$box.css('background','url(./blue/b'+$box.data("val")+'.svg)');
 
 		var initbox = ($(t).index() + 1) + dirmap[$(this).data('index')].dc;
 		// console.log(initbox);
 		
 		
-		if($('.level4box:nth-child('+initbox+')').hasClass('visited') || (parseInt($('.level4box:nth-child('+initbox+') .valcont').html()) ==0))
+		if($('.level4box:nth-child('+initbox+')').hasClass('visited') || (parseInt($('.level4box:nth-child('+initbox+') .valcont').data("val")) ==0))
 			lost();
 		else{
 			$('.level4box:nth-child('+initbox+')').addClass('sel');
+			var $box = $('.level4box:nth-child('+initbox+')').find('.valcont');
+			$box.css('background','url(./red/r'+$box.data("val")+'.svg)');
 			$('.level4box:nth-child('+initbox+')>.valcont').trigger("click");
 		}
 

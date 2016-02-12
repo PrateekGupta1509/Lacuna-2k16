@@ -59,9 +59,9 @@ var chess={
 		html.setAttribute("x",x);
 		html.setAttribute("y",y);
 		if((x+y)%2==0){
-			html.style.backgroundColor="#333";
+			html.style.backgroundImage="url('./assets/black_check.png')";
 		}else{
-			html.style.backgroundColor="#fff";
+			html.style.backgroundImage="url('./assets/white_check.png')";
 		}
 		$(html).droppable({
   			accept: '.bishop',

@@ -21,7 +21,10 @@ body,html{
 }
 .game_wrapper{
 	text-align: center;
+	min-height: 100vh;
 	padding: 50px 0;
+	background:url('./img/color_back.jpg');
+	background-size: 100% 100%;
 }
 #place_dice{
 	display: inline-block;
@@ -39,6 +42,8 @@ body,html{
 	border: 1px solid #000;
 	box-shadow: 1px 1px 2px 0 #000;
 	padding: 0;
+	background: url('./img/color_holder.png');
+	background-size: 100% 100%;
 }
 #place_dice .ui-draggable-dragging{
 	z-index:10;
@@ -69,8 +74,8 @@ body,html{
 	line-height: 45px;
 	display: inline-block;
 	vertical-align: middle;
-	border-radius: 5px;
-	background-color: #999;
+	border-radius: 10px;
+	background-color: #eee;
 	color: #eee;
 	cursor: pointer;
 }
@@ -79,22 +84,28 @@ body,html{
 	width:45%;
 	height:45%;
 	text-align: center;
+	background-size: 100% 100%;
 }
 .color_cont>.top_left_val{
 	top: 3%;
 	left:3%;
+	border-top-left-radius: 10px;
+
 }
 .color_cont>.top_right_val{
 	top:3%;
 	right:3%;
+	border-top-right-radius: 10px;
 }
 .color_cont>.bottom_left_val{
 	bottom:3%;
 	left:3%;
+	border-bottom-left-radius: 10px;
 }
 .color_cont>.bottom_right_val{
 	bottom:3%;
 	right:3%;
+	border-bottom-right-radius: 10px;
 }
 </style>
 </head>
@@ -210,20 +221,21 @@ $(window).load(function(){
 			box.find('.bottom_right_val'),
 			box.find('.bottom_left_val')
 		];
-		var temp = x[0].html(),val = x[0].data('val');
-		x[0].html(x[1].html());
+		var temp = x[0].css('background'),val = x[0].data('val');
+		x[0].css('background',x[1].css('background'));
 		x[0].data('val',x[1].data('val'));
-		x[1].html(x[2].html());
+		x[1].css('background',x[2].css('background'));
 		x[1].data('val',x[2].data('val'));
-		x[2].html(x[3].html());
+		x[2].css('background',x[3].css('background'));
 		x[2].data('val',x[3].data('val'));
-		x[3].html(temp);
+		x[3].css('background',temp);
 		x[3].data('val',val);
 	}
 	function createColorEle(d){
+		var map = [0,'red','green','blue','purple'];
 		var ele="";
 		for(var i=0;i<d.length;i++){
-				ele += '<div class="color_cont"> <div class="top_left_val" data-val="'+d[i][0]+'">'+d[i][0]+'</div> <div class="top_right_val" data-val="'+d[i][1]+'">'+d[i][1]+'</div> <div class="bottom_left_val" data-val="'+d[i][2]+'">'+d[i][2]+'</div> <div class="bottom_right_val" data-val="'+d[i][3]+'">'+d[i][3]+'</div> </div>';
+				ele += '<div class="color_cont"> <div class="top_left_val" style="background:url(./img/'+map[d[i][0]]+'.png);" data-val="'+d[i][0]+'"></div> <div class="top_right_val" style="background:url(./img/'+map[d[i][1]]+'.png);" data-val="'+d[i][1]+'"></div> <div class="bottom_left_val" style="background:url(./img/'+map[d[i][2]]+'.png);" data-val="'+d[i][2]+'"></div> <div class="bottom_right_val" style="background:url(./img/'+map[d[i][3]]+'.png);" data-val="'+d[i][3]+'"></div> </div>';
 		}
 		$('#dice_wrapper').html(ele);
 		$('.color_cont').draggable(colorOptions);
