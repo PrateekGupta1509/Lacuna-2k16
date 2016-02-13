@@ -5,7 +5,7 @@ var chess={
 		html.setAttribute("class","bishop");
 		html.setAttribute("color",color);
 		html.setAttribute("index",index);
-		html.style.backgroundImage = "url('./assets/"+color+".svg')";	 
+		html.style.backgroundImage = "url('./assets/"+color+".png')";	 
 		$(html).draggable({ 
 			revert: true,
 			helper: 'clone',
@@ -38,13 +38,13 @@ var chess={
 			return 1;
 		}
 		obj.makeMove= function(box){
-			var h= (0.75*window.innerHeight);
+			var h= (0.5*window.innerWidth);
 			if(this.isSafeMove(box) && this.isValidMove(box) && !box.occupied){
 				this.box.occupied =false;
 				this.box = box;
 				this.box.occupied=true;
-				this.html.style.top = (this.box.x*(h*0.25));
-				this.html.style.left = (this.box.y*(h*0.25));
+				this.html.style.top = (this.box.x*(h*0.2));
+				this.html.style.left = (this.box.y*(h*0.2));
 				return 1;
 			}
 			return 0;
@@ -59,9 +59,9 @@ var chess={
 		html.setAttribute("x",x);
 		html.setAttribute("y",y);
 		if((x+y)%2==0){
-			html.style.backgroundImage="url('./assets/black_check.png')";
+			html.style.backgroundImage="url('./assets/black.jpg')";
 		}else{
-			html.style.backgroundImage="url('./assets/white_check.png')";
+			html.style.backgroundImage="url('./assets/white.jpg')";
 		}
 		$(html).droppable({
   			accept: '.bishop',
@@ -112,23 +112,47 @@ var chess={
 		return 1;
 	},
 	setStyle : function(){
-		var h= (0.75*window.innerHeight);
+		var h= (0.5*window.innerWidth);
+		var height = window.innerHeight;
 		var chessBoard= document.getElementById("chess-board");
 		var chessBoxs= document.getElementsByClassName("chess-box");
-		chessBoard.style.height= h;
-		chessBoard.style.width= (h*1.25);
+		chessBoard.style.width= h;
+		chessBoard.style.left= h/2;
+		chessBoard.style.top= (height-(h*0.8))/2;
 		for(var i=0; i<chessBoxs.length;i++){
-			chessBoxs[i].style.height=(h*0.25);
-			chessBoxs[i].style.width=(h*0.25);
+			chessBoxs[i].style.height=(h*0.20);
+			chessBoxs[i].style.width=(h*0.20);
 		};
 		for(var i=0; i<2;i++){
 			for(var j=0;j<2;j++){
-				this.bishops[i][j].html.style.height=(h*0.25);
-				this.bishops[i][j].html.style.width=(h*0.25);
-				this.bishops[i][j].html.style.top = (this.bishops[i][j].box.x*(h*0.25));
-				this.bishops[i][j].html.style.left = (this.bishops[i][j].box.y*(h*0.25));
+				this.bishops[i][j].html.style.height=(h*0.20);
+				this.bishops[i][j].html.style.width=(h*0.20);
+				this.bishops[i][j].html.style.top = (this.bishops[i][j].box.x*(h*0.20));
+				this.bishops[i][j].html.style.left = (this.bishops[i][j].box.y*(h*0.20));
 			}
 		}
+	},
+	setBackBoxs: function(){
+		var board= document.getElementById("backround-boxs");
+		var h= (0.5*window.innerWidth);
+		var height = window.innerHeight;
+		var k=0;
+		board.style.top =((height-(h*0.8))/2)-(h*0.2);
+		for (i = 0; i <11; i++) {
+			for (j = 0; j <6; j++) {
+				var html= document.createElement("div");
+				html.style.height=(h*0.20);
+				html.style.width=(h*0.20);
+				console.log((i+j)%2==0);
+				if((k%2)==0){
+					html.style.backgroundImage="url('./assets/back_black.jpg')";
+				}else{
+					html.style.backgroundImage="url('./assets/back_white.jpg')";
+				}
+				board.appendChild(html);
+				k++;
+			};
+		};
 	},
 	initArrays: function(){
 		this.boxs= new Array(5);
@@ -143,6 +167,7 @@ var chess={
 	init: function(){
 		this.initArrays();
 		this.createBoxs();
+		this.setBackBoxs();
 		this.createBishops();
 		this.setStyle();
 	}
