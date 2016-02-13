@@ -13,6 +13,7 @@ viewBox="0 0 6400 8853"
     .fil2 {fill:#4D2D1B;fill-rule:nonzero}
     #image{
       mix-blend-mode: overlay;
+      pointer-events: none;
     }
    ]]>
   </style>
