@@ -11,16 +11,14 @@ viewBox="0 0 6400 8853"
     .fil3 {fill:#4D2D1B}
     .fil0 {fill:#916F41}
     .fil2 {fill:#4D2D1B;fill-rule:nonzero}
+    #image{
+      mix-blend-mode: overlay;
+    }
    ]]>
   </style>
    <clipPath id="id1">
     <path d="M6394 8841l0 -8855 -6400 0 0 8855 6400 0z"/>
    </clipPath>
-   <filter id="blendNorm" x="0" y="0" width="6400" height="8853" filterUnits="userSpaceOnUse">
-     <feImage x="0" y="0" width="6400" height="8853" xlink:href="./map_Images/texture.jpg" result="img1" />
-     <feImage x="0" y="0" width="6400" height="8853" xlink:href="#content" result="img2" />
-     <feBlend mode="overlay" in="img1" in2="img2"/>
-   </filter>
  </defs>
   <g id="content">
    <g id="back">
@@ -314,5 +312,10 @@ viewBox="0 0 6400 8853"
     <polygon class="fil3" points="2467,7496 2503,7543 2558,7522 2525,7571 2562,7617 2505,7601 2473,7650 2471,7591 2414,7575 2469,7555 "/>
    </g>
   </g>
-  <g filter="url(#blendNorm)" transform="translate(0)"></g>
+  <g id="image" filter="url(#blendNorm)" transform="translate(0)">
+    
+  </g>
+  <g id="image">
+   <image x="0" y="0" width="6400" height="8853" xlink:href="map_Images/texture.jpg"/>
+  </g>
 </svg>
